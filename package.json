@@ -1,0 +1,28 @@
+{
+  "name": "aoc-ts",
+  "version": "1.0.0",
+  "description": "repo for all ts implementations of advent of code problems",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saint-justin/aoc-ts.git"
+  },
+  "keywords": [
+    "typescript",
+    "challenge"
+  ],
+  "author": "Justin Vaughn",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/saint-justin/aoc-ts/issues"
+  },
+  "homepage": "https://github.com/saint-justin/aoc-ts#readme",
+  "dependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  }
+}
