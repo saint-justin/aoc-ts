@@ -6,7 +6,7 @@ const instruction_set = new Map<number, Instruction>([
   [2, multiply],
 ])
 
-// 2019, Day 1 Part 1 -- https://adventofcode.com/2019/day/1
+// 2019, Day 02 Part 1 -- https://adventofcode.com/2019/day/2
 export const calculateValueAtZero = (input: string[]) => {
   const setup_1202: Instruction = ({ instr_ptr, memory }: ComputerState) => {
     const mem_clone = [...memory];
@@ -22,7 +22,7 @@ export const calculateValueAtZero = (input: string[]) => {
   return output.memory[0];
 }
 
-// 2019, Day 1 Part 2 -- https://adventofcode.com/2019/day/2
+// 2019, Day 02 Part 2 -- https://adventofcode.com/2019/day/2
 export const findInputPair = (input: string[]) => {
   const generate_setup_for_pair = (noun: number, verb: number): Instruction => {
     return ({ instr_ptr, memory }: ComputerState) => {
