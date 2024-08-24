@@ -63,9 +63,9 @@ export const run = (input: string[], prerun: Instruction[], instruction_set: Map
 
   // Prerun Instructions
   if (prerun.length > 0) {
-    console.log(`  Running ${prerun.length} prerun instructions...`)
+    // console.log(`  Running ${prerun.length} prerun instructions.`)
     state = prerun.reduce((updated_state, instruction) => instruction(updated_state), state);
-    console.log("  Prerun instructions completed.");
+    // console.log("  Prerun instructions completed.");
     printState();
   }
 
@@ -81,7 +81,7 @@ export const run = (input: string[], prerun: Instruction[], instruction_set: Map
 
     // Return state if halt is next opcode
     if (memory[instr_ptr] === 99) {
-      console.log("  HALT command recieved");
+      // console.log("  HALT command recieved, exiting.");
       return state;
     }
 
@@ -93,7 +93,6 @@ export const run = (input: string[], prerun: Instruction[], instruction_set: Map
     }
 
     // Run instruction and cointinue loop
-    console.log(`  running instruction with opcode: ${memory[instr_ptr]}`)
     state = instruction_set.get(opcode)!(state);
   }
 }

@@ -1,5 +1,5 @@
 import { findFuelRequirements, findRecursiveFuel } from "./day_01";
-import { calculateValueAtZero } from "./day_02";
+import { calculateValueAtZero, findInputPair } from "./day_02";
 
 export default (day: number, input: string[]) => {
   switch (day) {
@@ -12,7 +12,9 @@ export default (day: number, input: string[]) => {
 
     case 2:
       const valueAtPositionZero = calculateValueAtZero(input);
+      const pairOutput = findInputPair(input);
       console.log('Value at position 0: ' + valueAtPositionZero);
+      console.log('Program Pair Output: ' + pairOutput);
       break;
 
     default:

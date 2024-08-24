@@ -1,8 +1,6 @@
 import aoc_2019 from './2019'
 import readFile from './helpers/readFile'
 
-console.log('hello world');
-
 const args = process.argv.slice(2);
 if (args.length !== 2) {
   console.error('Invalid inputs, required format is "npm start <year> <day>"');
