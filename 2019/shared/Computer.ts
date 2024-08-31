@@ -54,6 +54,7 @@ export const run = (input: string[], prerun: Instruction[], instruction_set: Map
     memory: input[0].split(',').map(s => parseInt(s)),
     instr_ptr: 0
   };
+
   const printState = () => {
     // Uncomment for verbose debug logs
     // console.log("  Updated State:");
@@ -63,9 +64,7 @@ export const run = (input: string[], prerun: Instruction[], instruction_set: Map
 
   // Prerun Instructions
   if (prerun.length > 0) {
-    // console.log(`  Running ${prerun.length} prerun instructions.`)
     state = prerun.reduce((updated_state, instruction) => instruction(updated_state), state);
-    // console.log("  Prerun instructions completed.");
     printState();
   }
 
@@ -81,7 +80,7 @@ export const run = (input: string[], prerun: Instruction[], instruction_set: Map
 
     // Return state if halt is next opcode
     if (memory[instr_ptr] === 99) {
-      // console.log("  HALT command recieved, exiting.");
+      printState();
       return state;
     }
 

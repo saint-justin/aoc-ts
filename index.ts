@@ -16,8 +16,8 @@ async function run (year: number, day: number) {
     console.error(`Unable to read input from /inputs/${year}/day_${paddedDay}.txt`);
     process.exit(1);
   }
-  const input = inputLine.split('\r\n').map(line => line.trim());
 
+  const input = inputLine.split('\r\n').map(line => line.trim());
   console.log(`Running problem ${paddedDay} for year ${year}:`);
 
   switch (year) {

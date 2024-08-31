@@ -98,11 +98,13 @@ describe("run function", () => {
     test("Invalid opcode throws error", () => {
       // given
       const invalid_memory = ["1,0,0,0,0"];
-      const throwErr = () => run(invalid_memory, [], new Map());
 
-      // when/then
-      expect(throwErr).toThrow(Error);
-      expect(throwErr).toThrow("Invalid opcode recieved: 1 vs opcodes recognized: [99]")
+      // when
+      const throw_err = () => run(invalid_memory, [], new Map());
+
+      // then
+      expect(throw_err).toThrow(Error);
+      expect(throw_err).toThrow("Invalid opcode recieved: 1 vs opcodes recognized: [99]")
     });
   });
 
@@ -119,13 +121,13 @@ describe("run function", () => {
       }
 
       // when
-      const throwErr = () => run(input, [], new Map<number, Instruction>([
+      const throw_err = () => run(input, [], new Map<number, Instruction>([
         [1, broken_instruction]
       ]))
 
       // then
-      expect(throwErr).toThrow(Error);
-      expect(throwErr).toThrow(`Invalid instr_ptr State: Pointer at ${invalid_instr_ptr}, mem size is 5`);
+      expect(throw_err).toThrow(Error);
+      expect(throw_err).toThrow(`Invalid instr_ptr State: Pointer at ${invalid_instr_ptr}, mem size is 5`);
     });
 
     test("Overflow instr_ptr throws error", () => {
@@ -140,13 +142,13 @@ describe("run function", () => {
       }
 
       // when
-      const throwErr = () => run(input, [], new Map<number, Instruction>([
+      const throw_err = () => run(input, [], new Map<number, Instruction>([
         [1, broken_instruction]
       ]))
 
       // then
-      expect(throwErr).toThrow(Error);
-      expect(throwErr).toThrow(`Invalid instr_ptr State: Pointer at ${invalid_instr_ptr}, mem size is 5`);
+      expect(throw_err).toThrow(Error);
+      expect(throw_err).toThrow(`Invalid instr_ptr State: Pointer at ${invalid_instr_ptr}, mem size is 5`);
     });
   })
 })
