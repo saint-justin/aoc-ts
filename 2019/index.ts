@@ -1,6 +1,7 @@
 import { find_fuel_requirements, find_recursive_fuel_requirements } from "./day_01";
 import { calculate_value_at_zero, find_input_pair } from "./day_02";
 import { find_distance_from_port_to_nearest_intersection, find_distance_to_intersection_by_combined_steps } from "./day_03";
+import { count_valid_passwords, count_valid_passwords_strict } from "./day_04";
 
 export default (day: number, input: string[]) => {
   switch (day) {
@@ -25,6 +26,14 @@ export default (day: number, input: string[]) => {
       const fewest_combined_steps = find_distance_to_intersection_by_combined_steps(input);
       console.log('Distance to Nearest Crossed Wires: ' + nearest_crossed_wires);
       console.log('Distance by Fewest Combined Steps: ' + fewest_combined_steps);
+      break;
+    }
+
+    case 4: {
+      const valid_password_count = count_valid_passwords(input);
+      const valid_password_coun_strict = count_valid_passwords_strict(input);
+      console.log('Total Valid Passwords in Range: ' + valid_password_count);
+      console.log('Total Valid Passwords in Range Strict: ' + valid_password_coun_strict);
       break;
     }
     
