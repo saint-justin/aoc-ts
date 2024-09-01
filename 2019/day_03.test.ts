@@ -2,7 +2,6 @@ import {
   Alignment, 
   Intersection, 
   LineSegment, 
-  Point,
   find_alignment, 
   find_distance_from_port_to_nearest_intersection, 
   find_all_intersections, 
@@ -76,7 +75,6 @@ describe("day_03", () => {
         // given
         const p1 = { x: 0, y: 1 };
         const p2 = { x: 1, y: 0 };
-        const expected_alignment = Alignment.HORIZONTAL;
 
         // when
         const throw_err = () => find_alignment(p1, p2);

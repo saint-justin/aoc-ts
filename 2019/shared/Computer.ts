@@ -92,7 +92,11 @@ export const run = (input: string[], prerun: Instruction[], instruction_set: Map
     }
 
     // Run instruction and cointinue loop
-    state = instruction_set.get(opcode)!(state);
+    const instruction = instruction_set.get(opcode);
+    if (!instruction) {
+      throw new Error(`Invalid instruction requested; opcode: ${opcode}`); 
+    }
+    state = instruction(state);
   }
 }
 

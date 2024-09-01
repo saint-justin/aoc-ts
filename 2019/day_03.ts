@@ -1,9 +1,9 @@
-export type Point = {
+export interface Point {
   x: number;
   y: number;
 }
 
-export type Intersection = {
+export interface Intersection {
   pos: Point;
   steps_to: number;
 }
@@ -150,9 +150,8 @@ export const check_for_intersection = (segment_1: LineSegment, segment_2: LineSe
 export const find_all_intersections = (wire_1: LineSegment[], wire_2: LineSegment[]): Intersection[] => {
   const intersections: Intersection[] = [];
 
-  for (let i=0; i<wire_1.length; i++) {
-    for (let j=0; j<wire_2.length; j++) {
-      const [segment_1, segment_2] = [wire_1[i], wire_2[j]];
+  for (const segment_1 of wire_1) {
+    for (const segment_2 of wire_2) {
       const intersection = check_for_intersection(segment_1, segment_2);
       if (intersection) {
         const seg_1_steps = segment_1.leadup_length + get_distance_from(segment_1.end_points[0], intersection);

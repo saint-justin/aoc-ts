@@ -39,7 +39,7 @@ export const find_input_pair = (input: string[]) => {
   const expected_output = 19690720;
   for (let noun=0; noun<=99; noun++) {
     for (let verb=0; verb<99; verb++) {
-      let setup = generate_setup_for_pair(noun, verb);
+      const setup = generate_setup_for_pair(noun, verb);
       const actual_output: ComputerState = run(input, [setup], instruction_set);
       if (actual_output.memory[0] === expected_output)  {
         console.log(`  Noun: ${noun}\n  Verb: ${verb}`);
