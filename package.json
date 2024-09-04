@@ -4,7 +4,7 @@
   "description": "repo for all ts implementations of advent of code problems",
   "main": "index.ts",
   "scripts": {
-    "start": "ts-node index.ts",
+    "start": "ts-node src/main.ts",
     "test": "npx jest --coverage",
     "lint": "npx eslint ."
   },

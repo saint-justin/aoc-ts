@@ -22,6 +22,7 @@ export default (day: number, input: string[]) => {
     }
 
     case 3: {
+      console.log(input);
       const nearest_crossed_wires = find_distance_from_port_to_nearest_intersection(input);
       const fewest_combined_steps = find_distance_to_intersection_by_combined_steps(input);
       console.log('Distance to Nearest Crossed Wires: ' + nearest_crossed_wires);

@@ -11,13 +11,13 @@ run(parseInt(args[0]), parseInt(args[1]));
 
 async function run (year: number, day: number) {
   const paddedDay = day.toString().padStart(2, '0');
-  const inputLine = await readFile(`./inputs/${year}/day_${paddedDay}.txt`);
+  const inputLine = await readFile(`src/inputs/${year}/day_${paddedDay}.txt`);
   if (!inputLine) { 
     console.error(`Unable to read input from /inputs/${year}/day_${paddedDay}.txt`);
     process.exit(1);
   }
 
-  const input = inputLine.split('\r\n').map(line => line.trim());
+  const input = inputLine.split(/\r?\n/).map(line => line.trim());
   console.log(`Running problem ${paddedDay} for year ${year}:`);
 
   switch (year) {
