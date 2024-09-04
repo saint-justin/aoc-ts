@@ -1,5 +1,5 @@
 ## Advent of Code TypeScript
-Why hello there! If you're reading this, it means that you've somehow stumbled upon Justin's **Advent Of Code** repository for all of his Rust attempts. 
+Why hello there! If you're reading this, it means that you've somehow stumbled upon Justin's **Advent Of Code** repository for his TS attempts. 
 
 Let's cover some quick basics:
 
