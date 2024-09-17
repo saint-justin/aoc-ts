@@ -1,10 +1,8 @@
 import { 
   ComputerState, 
-  Instruction,
   run, 
-  add, 
-  multiply 
 } from "./Computer";
+import { Instruction } from "./Instructions";
 
 describe("run function", () => {
   test("Internal state memory parses input correctly", () => {
@@ -13,6 +11,7 @@ describe("run function", () => {
     const expected_state: ComputerState = {
       memory: [99, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
       instr_ptr: 0,
+      param_mode: 0,
     }
 
     // when
@@ -38,6 +37,7 @@ describe("run function", () => {
       const expected_state: ComputerState = {
         memory: [ 99, 1, 2, 0, 0 ],
         instr_ptr: 0,
+        param_mode: 0,
       }
 
       // when
@@ -69,6 +69,7 @@ describe("run function", () => {
       const expected_state: ComputerState = {
         memory: [99, 1, 2, 0, 0],
         instr_ptr: 0,
+        param_mode: 0,
       }
 
       // when
@@ -86,7 +87,9 @@ describe("run function", () => {
       const default_state: ComputerState = {
         memory: [99, 0, 0, 0, 0],
         instr_ptr: 0,
+        param_mode: 0,
       }
+      
 
       // when
       const actual_state = run(default_input, [], new Map());
@@ -153,80 +156,5 @@ describe("run function", () => {
   })
 })
 
-describe('"add" instruction', () => {
-  test('Addition works targetting the same index', () => {
-    // given
-    const state: ComputerState = {
-      memory: [1, 4, 4, 3, 5],
-      instr_ptr: 0
-    };
-    const expected_result: ComputerState = {
-      memory: [1, 4, 4, 10, 5],
-      instr_ptr: 4,
-    }
-
-    // when
-    const actual_result = add(state);
-
-    // then
-    expect(actual_result).toStrictEqual(expected_result);
-  });
-
-  test('Addition works targetting different indices', () => {
-    // given
-    const state: ComputerState = {
-      memory: [1, 2, 4, 3, 5],
-      instr_ptr: 0
-    };
-    const expectedResult: ComputerState = {
-      memory: [1, 2, 4, 9, 5],
-      instr_ptr: 4,
-    }
-
-    // when
-    const actualResult = add(state);
-
-    // then
-    expect(actualResult).toStrictEqual(expectedResult);
-  });
-});
-
-describe('"multiply" instruction', () => {
-  test('Multiplication works targetting the same index', () => {
-    // given
-    const state: ComputerState = {
-      memory: [1, 4, 4, 3, 5],
-      instr_ptr: 0
-    };
-    const expected_result: ComputerState = {
-      memory: [1, 4, 4, 25, 5],
-      instr_ptr: 4,
-    };
-
-    // when
-    const actual_result = multiply(state);
-
-    // then
-    expect(actual_result).toStrictEqual(expected_result);
-  });
-
-  test('Multiplication works targetting different indices', () => {
-    // given
-    const state: ComputerState = {
-      memory: [1, 2, 4, 3, 5],
-      instr_ptr: 0
-    };
-    const expectedResult: ComputerState = {
-      memory: [1, 2, 4, 20, 5],
-      instr_ptr: 4,
-    }
-
-    // when
-    const actualResult = multiply(state);
-    
-    // then
-    expect(actualResult).toStrictEqual(expectedResult);
-  });
-});
 
 
