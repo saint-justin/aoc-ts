@@ -1,4 +1,5 @@
-import { run, add, multiply, Instruction, ComputerState } from './shared/Computer';
+import { run, ComputerState } from './shared/Computer';
+import { add, multiply, Instruction } from './shared/Instructions';
 
 // Valid instructions for Day 2
 const instruction_set = new Map<number, Instruction>([
