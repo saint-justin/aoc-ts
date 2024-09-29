@@ -3,6 +3,7 @@ import { calculate_value_at_zero, find_input_pair } from "./day_02";
 import { find_distance_from_port_to_nearest_intersection, find_distance_to_intersection_by_combined_steps } from "./day_03";
 import { count_valid_passwords, count_valid_passwords_strict } from "./day_04";
 import { find_direct_and_indirect_orbits } from "./day_06";
+import { find_ones_and_twos_product } from "./day_08";
 
 export default (day: number, input: string[]) => {
   switch (day) {
@@ -42,6 +43,12 @@ export default (day: number, input: string[]) => {
     case 6: {
       const orbits = find_direct_and_indirect_orbits(input);
       console.log('Total Orbits: ' + orbits);
+      break;
+    }
+
+    case 8: {
+      const one_two_product = find_ones_and_twos_product(input);
+      console.log('Ones and Twos Product: ' + one_two_product);
       break;
     }
     
