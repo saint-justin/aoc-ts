@@ -1,5 +1,5 @@
 import { find_resulting_frequency, find_first_dup_frequency } from './day_01';
-import { find_checksum_for_box_ids } from './day_02';
+import { find_checksum_for_box_ids, find_common_letters_between_correct_box_ids } from './day_02';
 
 export default (day: number, input: string[]) => {
   switch (day) {
@@ -13,7 +13,9 @@ export default (day: number, input: string[]) => {
 
     case 2: {
       const box_checksum = find_checksum_for_box_ids(input);
+      const box_id_diff = find_common_letters_between_correct_box_ids(input);
       console.log('Box checksum: ' + box_checksum);
+      console.log('Box IDs diffed: ' + box_id_diff);
       break;
     }
     
