@@ -1,6 +1,7 @@
-import run_2018 from './2018'
-import run_2019 from './2019'
-import readFile from './helpers/readFile'
+import run_2018 from './2018';
+import run_2019 from './2019';
+import run_2024 from './2024';
+import readFile from './helpers/readFile';
 
 const args = process.argv.slice(2);
 if (args.length !== 2) {
@@ -26,6 +27,10 @@ async function run (year: number, day: number) {
 
     case 2019: 
       run_2019(day, input);
+      break;
+
+    case 2024:
+      run_2024(day, input);
       break;
   
     default:
