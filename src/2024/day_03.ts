@@ -1,5 +1,6 @@
 const mul_pattern = /mul\((\d+),(\d+)\)/g;
 
+// 2024, Day 3 Part 1 -- https://adventofcode.com/2024/day/3
 export const find_mul_sum = (instruction_sets: string[]) => {
   let sum = 0;
   instruction_sets.forEach(line => 
@@ -8,6 +9,7 @@ export const find_mul_sum = (instruction_sets: string[]) => {
   return sum;
 }
 
+// 2024, Day 3 Part 2 -- https://adventofcode.com/2024/day/3#part2
 export const find_enabled_mul_sum = (instruction_sets: string[]) => {
   let sum = 0;
   let enabled = true;
