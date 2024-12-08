@@ -2,6 +2,7 @@ import { find_similarity_score_between_lists, find_total_distance_between_lists 
 import { count_safe_reports, count_safe_reports_with_dampening } from "./day_02";
 import { find_enabled_mul_sum, find_mul_sum } from "./day_03";
 import { find_x_mas_count, find_xmas_count } from "./day_04";
+import { sum_middle_pages, sum_misordered_middle_pages } from "./day_05";
 
 export default (day: number, input: string[]) => {
   switch (day) {
@@ -34,6 +35,14 @@ export default (day: number, input: string[]) => {
       const all_x_mas_findings = find_x_mas_count(input);
       console.log('All XMAS Count in Word Search:  ' + all_xmas_findings);
       console.log('All X-MAS Count in Word Search: ' + all_x_mas_findings);
+      break;
+    }
+
+    case 5: {
+      const middle_page_sum = sum_middle_pages(input);
+      const misordered_middle_page_sum = sum_misordered_middle_pages(input)
+      console.log('Sum of sorted middle pages:     ' + middle_page_sum);
+      console.log('Sum of misordered middle pages: ' + misordered_middle_page_sum);
       break;
     }
 
