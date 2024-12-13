@@ -4,6 +4,7 @@ import { find_enabled_mul_sum, find_mul_sum } from "./day_03";
 import { find_x_mas_count, find_xmas_count } from "./day_04";
 import { sum_middle_pages, sum_misordered_middle_pages } from "./day_05";
 import { count_looping_obstructions, count_spaces_traversed } from "./day_06";
+import { find_base_calibration_result, find_expanded_calibration_result } from "./day_07";
 
 export default (day: number, input: string[]) => {
   switch (day) {
@@ -53,6 +54,14 @@ export default (day: number, input: string[]) => {
       const locations_for_loops = count_looping_obstructions(input)
       console.log('Unique Spaces Traversed:                  ' + spaces_traversed);
       console.log('Locations where Obstructions Cause Loops: ' + locations_for_loops);
+      break;
+    }
+
+    case 7: {
+      const base_calibration_result = find_base_calibration_result(input);
+      const expanded_calibration_result = find_expanded_calibration_result(input);
+      console.log('Base Calibration Result:     ' + base_calibration_result);
+      console.log('Expanded Calibration Result: ' + expanded_calibration_result);
       break;
     }
 
