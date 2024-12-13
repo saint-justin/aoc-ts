@@ -1,7 +1,7 @@
 // Helper cache to speed up operand generation
 let operands_cache;
 
-// 2024, Day 6 Part 1 -- https://adventofcode.com/2024/day/6
+// 2024, Day 7 Part 1 -- https://adventofcode.com/2024/day/6
 export const find_base_calibration_result = (equations: string[]) => {
   operands_cache = new Map<number, string[][]>();
   return equations
@@ -10,7 +10,7 @@ export const find_base_calibration_result = (equations: string[]) => {
     .reduce((acc, eq_args) => acc + eq_args[0], BigInt(0));
 }
 
-// 2024, Day 6 Part 2 -- https://adventofcode.com/2024/day/6#part2
+// 2024, Day 7 Part 2 -- https://adventofcode.com/2024/day/6#part2
 export const find_expanded_calibration_result = (equations: string[]) => {
   operands_cache = new Map<number, string[][]>();
 

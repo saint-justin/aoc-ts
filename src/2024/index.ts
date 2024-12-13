@@ -5,6 +5,7 @@ import { find_x_mas_count, find_xmas_count } from "./day_04";
 import { sum_middle_pages, sum_misordered_middle_pages } from "./day_05";
 import { count_looping_obstructions, count_spaces_traversed } from "./day_06";
 import { find_base_calibration_result, find_expanded_calibration_result } from "./day_07";
+import { count_antinodes_in_bounds, count_repeating_antinodes_in_bounds } from "./day_08";
 
 export default (day: number, input: string[]) => {
   switch (day) {
@@ -62,6 +63,14 @@ export default (day: number, input: string[]) => {
       const expanded_calibration_result = find_expanded_calibration_result(input);
       console.log('Base Calibration Result:     ' + base_calibration_result);
       console.log('Expanded Calibration Result: ' + expanded_calibration_result);
+      break;
+    }
+
+    case 8: {
+      const antinodes_in_bounds = count_antinodes_in_bounds(input);
+      const repeating_antinodes_in_bounds = count_repeating_antinodes_in_bounds(input);
+      console.log('Antinodes within Bounds: ' + antinodes_in_bounds);
+      console.log('Repeating antinodes within Bounds: ' + repeating_antinodes_in_bounds);
       break;
     }
 
