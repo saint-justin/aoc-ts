@@ -6,6 +6,7 @@ import { sum_middle_pages, sum_misordered_middle_pages } from "./day_05";
 import { count_looping_obstructions, count_spaces_traversed } from "./day_06";
 import { find_base_calibration_result, find_expanded_calibration_result } from "./day_07";
 import { count_antinodes_in_bounds, count_repeating_antinodes_in_bounds } from "./day_08";
+import { files_by_block_checksum } from "./day_09";
 
 export default (day: number, input: string[]) => {
   switch (day) {
@@ -71,6 +72,12 @@ export default (day: number, input: string[]) => {
       const repeating_antinodes_in_bounds = count_repeating_antinodes_in_bounds(input);
       console.log('Antinodes within Bounds: ' + antinodes_in_bounds);
       console.log('Repeating antinodes within Bounds: ' + repeating_antinodes_in_bounds);
+      break;
+    }
+
+    case 9: {
+      const by_block_checksum = files_by_block_checksum(input);
+      console.log('Checksum when moving full files: ' + by_block_checksum);
       break;
     }
 
