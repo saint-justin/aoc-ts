@@ -8,6 +8,7 @@ import { find_base_calibration_result, find_expanded_calibration_result } from "
 import { count_antinodes_in_bounds, count_repeating_antinodes_in_bounds } from "./day_08";
 import { files_by_block_checksum } from "./day_09";
 import { sum_trailhead_ratings, sum_trailhead_scores } from "./day_10";
+import { count_stones_after_25_blinks } from "./day_11";
 
 export default (day: number, input: string[]) => {
   switch (day) {
@@ -89,6 +90,12 @@ export default (day: number, input: string[]) => {
       const trailhead_rating_sum = sum_trailhead_ratings(input)
       console.log('Trailhead Score Sum: ' + trailhead_score_sum);
       console.log('Trailhead Rating Sum: ' + trailhead_rating_sum);
+      break;
+    }
+
+    case 11: {
+      const stones_after_25_blinks = count_stones_after_25_blinks(input);
+      console.log('Stones after 25 Blinks: ' + stones_after_25_blinks);
       break;
     }
 
