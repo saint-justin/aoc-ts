@@ -7,6 +7,7 @@ import { count_looping_obstructions, count_spaces_traversed } from "./day_06";
 import { find_base_calibration_result, find_expanded_calibration_result } from "./day_07";
 import { count_antinodes_in_bounds, count_repeating_antinodes_in_bounds } from "./day_08";
 import { files_by_block_checksum } from "./day_09";
+import { sum_trailhead_ratings, sum_trailhead_scores } from "./day_10";
 
 export default (day: number, input: string[]) => {
   switch (day) {
@@ -76,8 +77,18 @@ export default (day: number, input: string[]) => {
     }
 
     case 9: {
+      // Day 9 Part 1 is lost to the void, not sure where it went. 
+      // I did an in-place sort + swapping shenanigans.
       const by_block_checksum = files_by_block_checksum(input);
       console.log('Checksum when moving full files: ' + by_block_checksum);
+      break;
+    }
+
+    case 10: {
+      const trailhead_score_sum = sum_trailhead_scores(input);
+      const trailhead_rating_sum = sum_trailhead_ratings(input)
+      console.log('Trailhead Score Sum: ' + trailhead_score_sum);
+      console.log('Trailhead Rating Sum: ' + trailhead_rating_sum);
       break;
     }
 
