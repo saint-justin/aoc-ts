@@ -8,7 +8,8 @@ import { find_base_calibration_result, find_expanded_calibration_result } from "
 import { count_antinodes_in_bounds, count_repeating_antinodes_in_bounds } from "./day_08";
 import { files_by_block_checksum } from "./day_09";
 import { sum_trailhead_ratings, sum_trailhead_scores } from "./day_10";
-import { count_stones_after_25_blinks } from "./day_11";
+import { count_stones_after_25_blinks, count_stones_after_75_blinks } from "./day_11";
+import { sum_property_values } from "./day_12";
 
 export default (day: number, input: string[]) => {
   switch (day) {
@@ -78,8 +79,8 @@ export default (day: number, input: string[]) => {
     }
 
     case 9: {
-      // Day 9 Part 1 is lost to the void, not sure where it went. 
-      // I did an in-place sort + swapping shenanigans.
+      // Day 9 p1 is lost to the void, oof. 
+      // I did an in-place sort and some in-place char swapping shenanigans.
       const by_block_checksum = files_by_block_checksum(input);
       console.log('Checksum when moving full files: ' + by_block_checksum);
       break;
@@ -95,7 +96,15 @@ export default (day: number, input: string[]) => {
 
     case 11: {
       const stones_after_25_blinks = count_stones_after_25_blinks(input);
+      const stones_after_75_blinks = count_stones_after_75_blinks(input);
       console.log('Stones after 25 Blinks: ' + stones_after_25_blinks);
+      console.log('Stones after 75 Blinks: ' + stones_after_75_blinks);
+      break;
+    }
+
+    case 12: {
+      const property_value_sum = sum_property_values(input);
+      console.log('Property value sum: ' + property_value_sum);
       break;
     }
 

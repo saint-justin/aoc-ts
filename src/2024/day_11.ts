@@ -1,30 +1,58 @@
-const cache = new Map<bigint, bigint | bigint[]>();
-cache.set(BigInt(0), BigInt(1))
+// Helpers because they're bulky
+const ZERO = BigInt(0);
+const ONE = BigInt(1);
+const BIG = BigInt(2024);
 
-// 2024, Day 10 Part 1 -- https://adventofcode.com/2024/day/10
+// 2024, Day 11 Part 1 -- https://adventofcode.com/2024/day/11
 export const count_stones_after_25_blinks = (input: string[]) => {
-  let stones: bigint[] = input[0].split(' ').map(s => BigInt(s));
-
-  for (let i = 0; i < 75; i++) {
-    stones = stones.map(stone => blink(stone)).flat()
-    console.log(`After ${i.toString().padStart(2)}: ${stones.length}`);
-  }
-
-  return stones.length;
+    // Initialize a map of stone id => stone count
+    let stone_map = new Map<bigint, number>();
+    input[0].split(' ').map(s => BigInt(s)).forEach(stone => stone_map.set(stone, 1));
+    for (let i=0; i<25; i++) {
+      stone_map = blink(stone_map);
+    }
+    return [...stone_map].reduce((acc, [_, ct]) => acc + ct, 0);
 }
 
-const blink = (stone: bigint) => {
-  if (cache.has(stone)) return cache.get(stone);
-
-  if (stone.toString().length % 2 === 0) {
-    const as_str = stone.toString();
-    const left = as_str.slice(0, as_str.length / 2);
-    const right = as_str.slice(as_str.length / 2);
-    cache.set(stone, [BigInt(left), BigInt(right)])
-    return [BigInt(left), BigInt(right)];
+// 2024, Day 11 Part 2 -- https://adventofcode.com/2024/day/11#part2
+export const count_stones_after_75_blinks = (input: string[]) => {
+  // Initialize a map of stone id => stone count
+  let stone_map = new Map<bigint, number>();
+  input[0].split(' ').map(s => BigInt(s)).forEach(stone => stone_map.set(stone, 1));
+  for (let i=0; i<75; i++) {
+    stone_map = blink(stone_map);
   }
-
-  const output = stone * BigInt(2024)
-  cache.set(stone, output)
-  return output;
+  return [...stone_map].reduce((acc, [_, ct]) => acc + ct, 0);
 }
+
+// Iterate over each key in the map, expanding till it gets biggums
+const blink = (old_map: Map<bigint, number>): Map<bigint, number> => {
+  const new_map = new Map<bigint, number>();
+  const add_stones = (id: bigint, count: number) => {
+    new_map.set(id, (new_map.get(id) || 0) + count)
+  }
+  for (const [id, count] of old_map) {
+    // zero case
+    if (id === ZERO) {
+      add_stones(ONE, count);
+      continue;
+    }
+
+    // even case
+    const id_str = id.toString();
+    if (id_str.length % 2 === 0) {
+      const id_1 = BigInt(id_str.slice(0, id_str.length / 2));
+      const id_2 = BigInt(id_str.slice(id_str.length / 2));
+      add_stones(id_1, count);
+      add_stones(id_2, count);
+      continue;
+    }
+
+    // get lorge case
+    const big_id = id * BIG;
+    add_stones(big_id, count);
+    continue;
+  }
+  return new_map;
+}
+
