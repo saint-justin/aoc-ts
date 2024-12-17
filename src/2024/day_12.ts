@@ -51,7 +51,6 @@ const explore_plot = (start_pos: Vector2D, property_map: string[][]): Set<string
 
   while (to_explore.length > 0) {
     const [x, y] = to_explore.pop().split(',').map(n => parseInt(n));
-    // console.log(`Exploring position [${x},${y}]  Explored: [${explored}]`)
     const current_val = property_map[x][y];
     const valid_adjacents = get_adjacent_positions({x,y})
       .filter(possible => property_map[possible.x][possible.y] === current_val)

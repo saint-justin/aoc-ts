@@ -28,18 +28,14 @@ export const count_stones_after_75_blinks = (input: string[]) => {
 // Iterate over each key in the map, expanding till it gets biggums
 const blink = (old_map: Map<bigint, number>): Map<bigint, number> => {
   const new_map = new Map<bigint, number>();
-  const add_stones = (id: bigint, count: number) => {
-    new_map.set(id, (new_map.get(id) || 0) + count)
-  }
+  const add_stones = (id: bigint, count: number) => new_map.set(id, (new_map.get(id) || 0) + count);
   for (const [id, count] of old_map) {
-    // zero case
     if (id === ZERO) {
-      add_stones(ONE, count);
+      add_stones(ONE, count); // if zero, add a 1
       continue;
     }
 
-    // even case
-    const id_str = id.toString();
+    const id_str = id.toString(); // if even, split in half and add both
     if (id_str.length % 2 === 0) {
       const id_1 = BigInt(id_str.slice(0, id_str.length / 2));
       const id_2 = BigInt(id_str.slice(id_str.length / 2));
@@ -48,10 +44,7 @@ const blink = (old_map: Map<bigint, number>): Map<bigint, number> => {
       continue;
     }
 
-    // get lorge case
-    const big_id = id * BIG;
-    add_stones(big_id, count);
-    continue;
+    add_stones(id * BIG, count); // else add big boi
   }
   return new_map;
 }
